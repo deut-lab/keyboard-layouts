@@ -20,7 +20,7 @@ T = {
     title="RuUa and EnDe keyboard layouts",
     desc="Two free Windows keyboard layouts: Russian with Ukrainian letters and English with German letters.",
     h1="Two layouts, four languages",
-    lead="A Russian layout that also has the Ukrainian letters, and an English layout that also has the German ones. Letters stay where you are used to them; everything extra is typed with the right Alt key. For Windows, free of charge.",
+    lead="An English layout that also has the German letters, and a Russian layout that also has the Ukrainian ones. Letters stay where you are used to them; everything extra is typed with the right Alt key. For Windows, free of charge.",
     dl_ruua="Download RuUa: Russian and Ukrainian", dl_ende="Download EnDe: English and German",
     note="Version 2611 of {date} · Windows 10 and 11 · <a href=\"#install\">how to install</a>",
     look="What they look like",
@@ -56,7 +56,7 @@ T = {
     title="Tastaturlayouts RuUa und EnDe",
     desc="Zwei kostenlose Tastaturlayouts für Windows: Russisch mit ukrainischen Buchstaben und Englisch mit deutschen Buchstaben.",
     h1="Zwei Layouts, vier Sprachen",
-    lead="Ein russisches Layout, das auch die ukrainischen Buchstaben hat, und ein englisches, das auch die deutschen hat. Die Buchstaben bleiben, wo Sie sie gewohnt sind; alles Zusätzliche tippen Sie mit der rechten Alt-Taste. Für Windows, kostenlos.",
+    lead="Ein englisches Layout, das auch die deutschen Buchstaben hat, und ein russisches, das auch die ukrainischen hat. Die Buchstaben bleiben, wo Sie sie gewohnt sind; alles Zusätzliche tippen Sie mit der rechten Alt-Taste. Für Windows, kostenlos.",
     dl_ruua="RuUa herunterladen: Russisch und Ukrainisch", dl_ende="EnDe herunterladen: Englisch und Deutsch",
     note="Version 2611 vom {date} · Windows 10 und 11 · <a href=\"#install\">Installation</a>",
     look="So sehen sie aus",
@@ -162,6 +162,8 @@ T = {
 ),
 }
 
+PKG = {'en': 'The archive was built with the standard Microsoft application Keyboard Layout Creator and contains Windows installation files:<ul><li><b>setup.exe</b>: starts the installation and picks the right file by itself;</li><li><b>…_amd64.msi</b>: installer for ordinary 64-bit computers with Intel or AMD processors;</li><li><b>…_i386.msi</b>: installer for old 32-bit Windows;</li><li><b>…_ia64.msi</b>: installer for Itanium servers, not needed on ordinary computers;</li><li>folders <b>amd64, i386, ia64, wow64</b>: the layout files themselves for each kind of Windows (wow64 serves 32-bit programs on 64-bit Windows); they are not run separately.</li></ul>To install, run <b>setup.exe</b>.', 'de': 'Das Archiv wurde mit der Standardanwendung Keyboard Layout Creator von Microsoft erstellt und enthält Installationsdateien für Windows:<ul><li><b>setup.exe</b>: startet die Installation und wählt die passende Datei selbst;</li><li><b>…_amd64.msi</b>: Installer für gewöhnliche 64-Bit-Computer mit Intel- oder AMD-Prozessor;</li><li><b>…_i386.msi</b>: Installer für altes 32-Bit-Windows;</li><li><b>…_ia64.msi</b>: Installer für Itanium-Server, auf gewöhnlichen Computern nicht nötig;</li><li>Ordner <b>amd64, i386, ia64, wow64</b>: die Layoutdateien selbst für jede Windows-Art (wow64 für 32-Bit-Programme auf 64-Bit-Windows); sie werden nicht einzeln gestartet.</li></ul>Zum Installieren starten Sie <b>setup.exe</b>.', 'uk': 'Архів зібрано стандартною програмою Microsoft Keyboard Layout Creator, він містить інсталяційні файли для Windows:<ul><li><b>setup.exe</b>: запускає встановлення й сам вибирає потрібний файл;</li><li><b>…_amd64.msi</b>: інсталятор для звичайних 64-бітних комп’ютерів із процесором Intel або AMD;</li><li><b>…_i386.msi</b>: інсталятор для старих 32-бітних Windows;</li><li><b>…_ia64.msi</b>: інсталятор для серверів Itanium, на звичайних комп’ютерах не потрібен;</li><li>папки <b>amd64, i386, ia64, wow64</b>: самі файли розкладки для кожного виду Windows (wow64 потрібна 32-бітним програмам на 64-бітній Windows); окремо їх запускати не треба.</li></ul>Щоб встановити, запустіть <b>setup.exe</b>.', 'ru': 'Архив собран стандартным приложением Microsoft Keyboard Layout Creator и содержит установочные файлы для Windows:<ul><li><b>setup.exe</b>: запускает установку и сам выбирает нужный файл;</li><li><b>…_amd64.msi</b>: установщик для обычных 64-битных компьютеров с процессором Intel или AMD;</li><li><b>…_i386.msi</b>: установщик для старых 32-битных Windows;</li><li><b>…_ia64.msi</b>: установщик для серверов Itanium, на обычных компьютерах не нужен;</li><li>папки <b>amd64, i386, ia64, wow64</b>: сами файлы раскладки для каждого вида Windows (wow64 нужна 32-битным программам на 64-битной Windows); отдельно их запускать не нужно.</li></ul>Для запуска нажмите <b>setup.exe</b>.'}
+
 LICENSE_NAME = '<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>'
 
 CSS = open(os.path.join(os.path.dirname(__file__), "site.css"), encoding="utf-8").read()
@@ -177,9 +179,14 @@ def page(lang):
     alternates = "".join(
         f'<link rel="alternate" hreflang="{code}" href="https://deut-lab.github.io/keyboard-layouts/{"" if code == "en" else code + "/"}">'
         for code, _ in LANGS)
+    ende_first = lang in ("en", "de")
+    card_list = list(t["cards"])
+    if ende_first:
+        card_list[1], card_list[2] = card_list[2], card_list[1]
     cards = "".join(
         f'<div class="item"><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
-        for tag, h, p in t["cards"])
+        for tag, h, p in card_list)
+    row_list = sorted(ROWS, key=lambda r: r[0] == "RuUa") if ende_first else ROWS
     steps = "".join(f"<li>{s}</li>" for s in t["steps"])
     h_title, h_sub = HEAD[lang]
     c1, c2, c3 = COLS[lang]
@@ -187,7 +194,19 @@ def page(lang):
         f'<div class="row"><div class="chars">{escape(ch)}<span class="lay">{lay}</span></div>'
         f'<div class="where"><span class="lbl">{c2}</span>{escape(where[lang])}</div>'
         f'<div class="whyc"><span class="lbl">{c3}</span>{escape(why[lang])}</div></div>'
-        for lay, ch, where, why in ROWS)
+        for lay, ch, where, why in row_list)
+    order = ["ende", "ruua"] if ende_first else ["ruua", "ende"]
+    names = {"ruua": "RuUa", "ende": "EnDe"}
+    buttons = "".join(
+        f'<a class="btn {"primary" if i == 0 else "tonal"}" href="{DL}{names[k]}2611.zip">{t["dl_" + k]}</a>'
+        for i, k in enumerate(order))
+    tabs = "".join(
+        f'<button role="tab" aria-selected="{"true" if i == 0 else "false"}" aria-controls="p-{k}" id="t-{k}">{names[k]}</button>'
+        for i, k in enumerate(order))
+    panels = "".join(
+        f'<div class="panel" id="p-{k}" role="tabpanel" aria-labelledby="t-{k}"{"" if i == 0 else " hidden"}>'
+        f'<div class="kbd-img"><img src="{root}img/{names[k]}2611.svg" alt="{escape(t["alt_" + k])}"></div></div>'
+        for i, k in enumerate(order))
     added = (f'<section class="card" id="added"><h2>{h_title}</h2><p class="sub">{h_sub}</p>'
              f'<div class="added"><div class="row head"><div>{c1}</div><div>{c2}</div><div>{c3}</div></div>{rows}</div></section>')
     return f"""<!doctype html>
@@ -209,8 +228,7 @@ def page(lang):
   <h1>{t["h1"]}</h1>
   <p class="lead">{t["lead"]}</p>
   <div class="btns">
-    <a class="btn primary" href="{DL}RuUa2611.zip">{t["dl_ruua"]}</a>
-    <a class="btn tonal" href="{DL}EnDe2611.zip">{t["dl_ende"]}</a>
+{buttons}
   </div>
   <p class="note">{t["note"].format(date=VERSION_DATE[lang])}</p>
 </header>
@@ -218,17 +236,16 @@ def page(lang):
   <h2>{t["look"]}</h2>
   <p class="sub">{t["look_sub"]}</p>
   <div class="tabs" role="tablist">
-    <button role="tab" aria-selected="true" aria-controls="p-ruua" id="t-ruua">RuUa</button>
-    <button role="tab" aria-selected="false" aria-controls="p-ende" id="t-ende">EnDe</button>
+{tabs}
   </div>
-  <div class="panel" id="p-ruua" role="tabpanel" aria-labelledby="t-ruua"><div class="kbd-img"><img src="{root}img/RuUa2611.svg" alt="{escape(t["alt_ruua"])}"></div></div>
-  <div class="panel" id="p-ende" role="tabpanel" aria-labelledby="t-ende" hidden><div class="kbd-img"><img src="{root}img/EnDe2611.svg" alt="{escape(t["alt_ende"])}"></div></div>
+{panels}
   <div class="legend"><span>{t["lg_black"]}</span><span class="c-alt">{t["lg_blue"]}</span><span class="c-dead">{t["lg_orange"]}</span><span>{t["lg_nbsp"]}</span></div>
 </section>
 <section><h2 class="why-title">{t["why"]}</h2><div class="why">{cards}</div></section>
 {added}
 <section class="card" id="install">
   <h2>{t["install"]}</h2>
+  <div class="warn pkg">{PKG[lang]}</div>
   <ol class="steps">{steps}</ol>
   <div class="warn">{t["warn"]}</div>
   <p class="sub" style="margin-top:16px">{t["remove"]}</p>
