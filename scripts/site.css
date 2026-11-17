@@ -43,3 +43,10 @@ footer a, .card a:not(.btn), .note a { color: var(--primary); }
 .tabs button[aria-selected="true"] { background: var(--primary-soft); border-color: var(--primary-soft); color: #041E49; }
 .panel[hidden] { display: none; }
 @media (max-width: 600px) { .card { padding: 20px; border-radius: 20px; } header { padding-top: 28px; } }
+.added .row { display: grid; grid-template-columns: 1.1fr 1.3fr 1.6fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+.added .row.head { border-top: 0; padding-top: 0; font-size: 13px; font-weight: 500; color: var(--muted); }
+.added .chars { font-size: 20px; line-height: 1.4; word-break: break-word; }
+.added .lay { display: block; font-size: 12px; font-weight: 500; color: var(--primary); margin-top: 4px; }
+.added .where { font-size: 14px; color: #3C4043; }
+.added .lbl { display: none; }
+@media (max-width: 700px) { .added .row { grid-template-columns: 1fr; gap: 6px; } .added .row.head { display: none; } .added .lbl { display: block; font-size: 12px; font-weight: 500; color: var(--muted); } }

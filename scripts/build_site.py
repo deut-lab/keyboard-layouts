@@ -4,7 +4,11 @@ Usage: python scripts/build_site.py
 English goes to docs/index.html, other languages to docs/<lang>/index.html.
 """
 import os
+import sys
 from html import escape
+
+sys.path.insert(0, os.path.dirname(__file__))
+from added import HEAD, COLS, ROWS  # noqa: E402
 
 REPO = "https://github.com/deut-lab/keyboard-layouts"
 DL = REPO + "/releases/latest/download/"
@@ -177,6 +181,15 @@ def page(lang):
         f'<div class="item"><span class="tag">{tag}</span><h3>{h}</h3><p>{p}</p></div>'
         for tag, h, p in t["cards"])
     steps = "".join(f"<li>{s}</li>" for s in t["steps"])
+    h_title, h_sub = HEAD[lang]
+    c1, c2, c3 = COLS[lang]
+    rows = "".join(
+        f'<div class="row"><div class="chars">{escape(ch)}<span class="lay">{lay}</span></div>'
+        f'<div class="where"><span class="lbl">{c2}</span>{escape(where[lang])}</div>'
+        f'<div class="whyc"><span class="lbl">{c3}</span>{escape(why[lang])}</div></div>'
+        for lay, ch, where, why in ROWS)
+    added = (f'<section class="card" id="added"><h2>{h_title}</h2><p class="sub">{h_sub}</p>'
+             f'<div class="added"><div class="row head"><div>{c1}</div><div>{c2}</div><div>{c3}</div></div>{rows}</div></section>')
     return f"""<!doctype html>
 <html lang="{lang}">
 <head>
@@ -213,6 +226,7 @@ def page(lang):
   <div class="legend"><span>{t["lg_black"]}</span><span class="c-alt">{t["lg_blue"]}</span><span class="c-dead">{t["lg_orange"]}</span><span>{t["lg_nbsp"]}</span></div>
 </section>
 <section><h2 class="why-title">{t["why"]}</h2><div class="why">{cards}</div></section>
+{added}
 <section class="card" id="install">
   <h2>{t["install"]}</h2>
   <ol class="steps">{steps}</ol>
