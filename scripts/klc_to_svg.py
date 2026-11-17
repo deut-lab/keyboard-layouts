@@ -59,7 +59,7 @@ ROWS = [
 U = 64  # key unit in px
 GAP = 6
 INK, ALT, DEAD, MUTED = "#1F1F1F", "#0B57D0", "#B45309", "#5F6368"
-SPACE_NAMES = {" ": "нп", " ": "узк. нп", " ": ""}
+SPACE_NAMES = {" ": "nbsp", " ": "nnbsp", " ": ""}
 
 
 def label(ch):
@@ -92,9 +92,9 @@ def draw(keys, title):
                 if name == "39":
                     parts = []
                     if alt:
-                        parts.append(f"правый Alt: {label(alt[0])}")
+                        parts.append(f"AltGr: {label(alt[0])}")
                     if salt:
-                        parts.append(f"Shift + правый Alt: {label(salt[0])}")
+                        parts.append(f"Shift+AltGr: {label(salt[0])}")
                     out.append(f'<text x="{x + kw / 2}" y="{y + kh / 2 + 5}" font-size="13" '
                                f'text-anchor="middle" fill="{ALT}">{escape("   ·   ".join(parts))}</text>')
                 else:

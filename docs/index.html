@@ -1,163 +1,91 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Раскладки RuUa и EnDe</title>
-<meta name="description" content="Две раскладки клавиатуры для Windows: русская с украинскими буквами и английская с немецкими. Бесплатно.">
+<title>RuUa and EnDe keyboard layouts</title>
+<meta name="description" content="Two free Windows keyboard layouts: Russian with Ukrainian letters and English with German letters.">
+<link rel="alternate" hreflang="en" href="https://deut-lab.github.io/keyboard-layouts/"><link rel="alternate" hreflang="de" href="https://deut-lab.github.io/keyboard-layouts/de/"><link rel="alternate" hreflang="uk" href="https://deut-lab.github.io/keyboard-layouts/uk/"><link rel="alternate" hreflang="ru" href="https://deut-lab.github.io/keyboard-layouts/ru/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
-<style>
-  :root {
-    --bg: #F3F6FB; --card: #FFFFFF; --ink: #1F1F1F; --muted: #5F6368;
-    --primary: #0B57D0; --primary-soft: #D3E3FD; --ok: #146C2E; --ok-soft: #C4EED0;
-    --warn: #5C3200; --warn-soft: #FFE2B8; --dead: #B45309; --line: #DDE3EA;
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 Roboto, "Segoe UI", system-ui, sans-serif; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
-  header { padding: 48px 0 24px; }
-  h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 0 0 12px; font-weight: 500; letter-spacing: -0.5px; }
-  .lead { font-size: 19px; color: var(--muted); max-width: 680px; margin: 0 0 24px; }
-  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-weight: 500; text-decoration: none; }
-  .btn.primary { background: var(--primary); color: #fff; }
-  .btn.tonal { background: var(--primary-soft); color: #041E49; }
-  .btn:hover { filter: brightness(1.06); }
-  .note { font-size: 14px; color: var(--muted); margin-top: 12px; }
-  .card { background: var(--card); border-radius: 24px; padding: 28px; margin: 20px 0; }
-  h2 { font-size: 26px; font-weight: 500; margin: 0 0 6px; }
-  h3 { font-size: 18px; font-weight: 500; margin: 0 0 4px; }
-  .sub { color: var(--muted); margin: 0 0 18px; }
-  .kbd-img { width: 100%; overflow-x: auto; }
-  .kbd-img img { display: block; width: 100%; min-width: 640px; height: auto; }
-  .legend { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--muted); margin-top: 14px; }
-  .legend b { font-weight: 500; }
-  .c-alt { color: var(--primary); } .c-dead { color: var(--dead); }
-  .why { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
-  .why .item { background: var(--card); border-radius: 20px; padding: 22px; }
-  .why .item p { margin: 6px 0 0; color: #3C4043; }
-  .tag { display: inline-block; font-size: 13px; font-weight: 500; padding: 2px 10px; border-radius: 999px; background: var(--ok-soft); color: var(--ok); margin-bottom: 8px; }
-  kbd { font: 500 14px Roboto, sans-serif; background: #E8EEF7; border-radius: 6px; padding: 1px 7px; white-space: nowrap; }
-  ol.steps { padding-left: 22px; margin: 8px 0 0; }
-  ol.steps li { margin: 8px 0; }
-  .warn { background: var(--warn-soft); color: var(--warn); border-radius: 16px; padding: 14px 18px; margin-top: 16px; font-size: 15px; }
-  footer { color: var(--muted); font-size: 14px; padding: 24px 0 48px; }
-  footer a, .card a:not(.btn) { color: var(--primary); }
-  .tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
-  .tabs button { font: 500 15px Roboto, sans-serif; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 8px 18px; cursor: pointer; }
-  .tabs button[aria-selected="true"] { background: var(--primary-soft); border-color: var(--primary-soft); color: #041E49; }
-  .panel[hidden] { display: none; }
-  @media (max-width: 600px) { .card { padding: 20px; border-radius: 20px; } header { padding-top: 32px; } }
+<style>:root { --bg:#F3F6FB; --card:#FFFFFF; --ink:#1F1F1F; --muted:#5F6368; --primary:#0B57D0; --primary-soft:#D3E3FD; --ok:#146C2E; --ok-soft:#C4EED0; --warn:#5C3200; --warn-soft:#FFE2B8; --dead:#B45309; --line:#DDE3EA; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 Roboto, "Segoe UI", system-ui, sans-serif; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+nav.top { background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }
+nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; flex-wrap: wrap; }
+.brand { font-weight: 500; font-size: 17px; }
+.langs { display: flex; gap: 4px; flex-wrap: wrap; }
+.langs a { color: var(--ink); text-decoration: none; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 500; }
+.langs a:hover { background: #E8EEF7; }
+.langs a[aria-current="page"] { background: var(--primary-soft); color: #041E49; }
+header { padding: 40px 0 24px; }
+h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 0 0 12px; font-weight: 500; letter-spacing: -0.5px; }
+.lead { font-size: 19px; color: var(--muted); max-width: 700px; margin: 0 0 24px; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 999px; font-weight: 500; text-decoration: none; }
+.btn.primary { background: var(--primary); color: #fff; }
+.btn.tonal { background: var(--primary-soft); color: #041E49; }
+.btn:hover { filter: brightness(1.06); }
+.note { font-size: 14px; color: var(--muted); margin-top: 12px; }
+.card { background: var(--card); border-radius: 24px; padding: 28px; margin: 20px 0; }
+h2 { font-size: 26px; font-weight: 500; margin: 0 0 6px; }
+.why-title { margin: 32px 0 16px; }
+h3 { font-size: 18px; font-weight: 500; margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 18px; }
+.kbd-img { width: 100%; overflow-x: auto; }
+.kbd-img img { display: block; width: 100%; min-width: 640px; height: auto; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--muted); margin-top: 14px; }
+.legend b { font-weight: 500; }
+.c-alt { color: var(--primary); } .c-dead { color: var(--dead); }
+.why { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+.why .item { background: var(--card); border-radius: 20px; padding: 22px; }
+.why .item p { margin: 6px 0 0; color: #3C4043; }
+.tag { display: inline-block; font-size: 13px; font-weight: 500; padding: 2px 10px; border-radius: 999px; background: var(--ok-soft); color: var(--ok); margin-bottom: 8px; }
+kbd { font: 500 14px Roboto, sans-serif; background: #E8EEF7; border-radius: 6px; padding: 1px 7px; white-space: nowrap; }
+ol.steps { padding-left: 22px; margin: 8px 0 0; }
+ol.steps li { margin: 8px 0; }
+.warn { background: var(--warn-soft); color: var(--warn); border-radius: 16px; padding: 14px 18px; margin-top: 16px; font-size: 15px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 48px; }
+footer a, .card a:not(.btn), .note a { color: var(--primary); }
+.tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.tabs button { font: 500 15px Roboto, sans-serif; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 8px 18px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--primary-soft); border-color: var(--primary-soft); color: #041E49; }
+.panel[hidden] { display: none; }
+@media (max-width: 600px) { .card { padding: 20px; border-radius: 20px; } header { padding-top: 28px; } }
 </style>
 </head>
 <body>
+<nav class="top"><div class="wrap"><span class="brand">RuUa · EnDe</span><span class="langs"><a href="" hreflang="en" lang="en" aria-current="page">English</a><a href="de/" hreflang="de" lang="de">Deutsch</a><a href="uk/" hreflang="uk" lang="uk">Українська</a><a href="ru/" hreflang="ru" lang="ru">Русский</a></span></div></nav>
 <div class="wrap">
-
 <header>
-  <h1>Две раскладки, четыре языка</h1>
-  <p class="lead">Русская раскладка с украинскими буквами и английская с немецкими. Буквы на привычных местах, а всё дополнительное набирается с правым Alt. Для Windows, бесплатно.</p>
+  <h1>Two layouts, four languages</h1>
+  <p class="lead">A Russian layout that also has the Ukrainian letters, and an English layout that also has the German ones. Letters stay where you are used to them; everything extra is typed with the right Alt key. For Windows, free of charge.</p>
   <div class="btns">
-    <a class="btn primary" href="https://github.com/deut-lab/keyboard-layouts/releases/latest/download/RuUa2611.zip">Скачать RuUa: русский и украинский</a>
-    <a class="btn tonal" href="https://github.com/deut-lab/keyboard-layouts/releases/latest/download/EnDe2611.zip">Скачать EnDe: английский и немецкий</a>
+    <a class="btn primary" href="https://github.com/deut-lab/keyboard-layouts/releases/latest/download/RuUa2611.zip">Download RuUa: Russian and Ukrainian</a>
+    <a class="btn tonal" href="https://github.com/deut-lab/keyboard-layouts/releases/latest/download/EnDe2611.zip">Download EnDe: English and German</a>
   </div>
-  <p class="note">Версия 2611 от 17.11.2026 · Windows 10 и 11 · <a href="#install">как установить</a></p>
+  <p class="note">Version 2611 of 17 Nov 2026 · Windows 10 and 11 · <a href="#install">how to install</a></p>
 </header>
-
-<section class="card" aria-labelledby="kbd-title">
-  <h2 id="kbd-title">Как выглядят</h2>
-  <p class="sub">На каждой клавише до четырёх знаков: внизу слева знак самой клавиши, вверху слева знак с Shift, справа синим знаки с правым Alt (верхний набирается ещё и с Shift).</p>
+<section class="card">
+  <h2>What they look like</h2>
+  <p class="sub">Each key shows up to four characters: bottom left is the key itself, top left is with Shift, blue on the right is with the right Alt key (the upper one also needs Shift).</p>
   <div class="tabs" role="tablist">
     <button role="tab" aria-selected="true" aria-controls="p-ruua" id="t-ruua">RuUa</button>
     <button role="tab" aria-selected="false" aria-controls="p-ende" id="t-ende">EnDe</button>
   </div>
-  <div class="panel" id="p-ruua" role="tabpanel" aria-labelledby="t-ruua">
-    <div class="kbd-img"><img src="img/RuUa2611.svg" alt="Раскладка RuUa2611: русские буквы ЙЦУКЕН, на правом Alt украинские ґ, і, ї, є, а также ё, валюты, стрелки и знаки"></div>
-  </div>
-  <div class="panel" id="p-ende" role="tabpanel" aria-labelledby="t-ende" hidden>
-    <div class="kbd-img"><img src="img/EnDe2611.svg" alt="Раскладка EnDe2611: латинские буквы QWERTY, на правом Alt немецкие ä, ö, ü, ß, кавычки „“, мёртвые клавиши ´ и ˇ"></div>
-  </div>
-  <div class="legend">
-    <span><b>Чёрным</b> набирается без Alt</span>
-    <span class="c-alt"><b>Синим</b> набирается с правым Alt</span>
-    <span class="c-dead"><b>Оранжевым</b>: сначала этот знак, потом буква, и из e выйдет é</span>
-    <span>«нп» значит неразрывный пробел</span>
-  </div>
+  <div class="panel" id="p-ruua" role="tabpanel" aria-labelledby="t-ruua"><div class="kbd-img"><img src="img/RuUa2611.svg" alt="RuUa2611 layout: Russian ЙЦУКЕН letters; with the right Alt key the Ukrainian ґ, і, ї, є, the letter ё, currency signs, arrows and symbols"></div></div>
+  <div class="panel" id="p-ende" role="tabpanel" aria-labelledby="t-ende" hidden><div class="kbd-img"><img src="img/EnDe2611.svg" alt="EnDe2611 layout: QWERTY letters; with the right Alt key the German ä, ö, ü, ß, quotes „“ and the accent keys ´ and ˇ"></div></div>
+  <div class="legend"><span><b>Black</b> is typed without Alt</span><span class="c-alt"><b>Blue</b> is typed with the right Alt key</span><span class="c-dead"><b>Orange</b>: press it, then a letter, and e becomes é</span><span>“nbsp” is a non-breaking space, “nnbsp” a narrow one</span></div>
 </section>
-
-<section aria-labelledby="why-title">
-  <h2 id="why-title" style="margin:32px 0 16px">Почему так</h2>
-  <div class="why">
-    <div class="item">
-      <span class="tag">Ничего не переучивать</span>
-      <h3>Буквы на своих местах</h3>
-      <p>ЙЦУКЕН и QWERTY остались как были. Всё новое добавлено только на правый Alt, поэтому руки печатают по-старому с первой минуты.</p>
-    </div>
-    <div class="item">
-      <span class="tag">Без третьей раскладки</span>
-      <h3>Украинские буквы рядом с похожими</h3>
-      <p><kbd>ґ</kbd> на Г, <kbd>і</kbd> на Ы, <kbd>ї</kbd> на Ъ, <kbd>є</kbd> на Э, все с правым Alt. Русский и украинский в одной раскладке, переключаться между ними не нужно.</p>
-    </div>
-    <div class="item">
-      <span class="tag">Немецкий без переключения</span>
-      <h3>Умлауты на своих буквах</h3>
-      <p><kbd>ä</kbd> на A, <kbd>ö</kbd> на O, <kbd>ü</kbd> на U, <kbd>ß</kbd> на S. Немецкие кавычки <kbd>„“</kbd> стоят на правом Alt рядом со скобками, а «ёлочки» на соседней клавише.</p>
-    </div>
-    <div class="item">
-      <span class="tag">Одинаково в обеих</span>
-      <h3>Знаки не прыгают при смене языка</h3>
-      <p>Точка и запятая стоят на одной клавише справа от Ю в обеих раскладках. Знаки над цифрами тоже совпадают. Переключили язык, а пальцы ищут то же место.</p>
-    </div>
-    <div class="item">
-      <span class="tag">Деньги и документы</span>
-      <h3>€, ₴, №, § на цифрах</h3>
-      <p>С правым Alt: <kbd>€</kbd> на 5, <kbd>₴</kbd> на 9, <kbd>№</kbd> на 3, <kbd>§</kbd> на 1, <kbd>@</kbd> на 2. С Shift и правым Alt набираются степени: м², м³.</p>
-    </div>
-    <div class="item">
-      <span class="tag">Красивый текст</span>
-      <h3>Пробелы, которые не рвут строку</h3>
-      <p>Правый Alt и пробел дают неразрывный пробел, поэтому «10 €» и «Т. Шевченко» не разъедутся по строкам. С Shift получится узкий: «1 000», «z. B.».</p>
-    </div>
-    <div class="item">
-      <span class="tag">Имена из разных стран</span>
-      <h3>é, á, š, č двумя нажатиями</h3>
-      <p>В EnDe: Shift + правый Alt + <kbd>'</kbd>, затем буква, и выйдет é, á, ó. Shift + правый Alt + <kbd>M</kbd>, затем буква, и выйдет š, č, ž. Для René, José, Dvořák.</p>
-    </div>
-    <div class="item">
-      <span class="tag">Для диктовки</span>
-      <h3>Клавиша у единицы свободна</h3>
-      <p>Она печатает редкий знак <kbd>ʹ</kbd>, которого нет в обычном тексте, поэтому на неё удобно повесить вызов голосового ввода. Обычный апостроф набирается с Shift на той же клавише.</p>
-    </div>
-    <div class="item">
-      <span class="tag">Для форм и списков</span>
-      <h3>Галочки, стрелки, дроби</h3>
-      <p><kbd>☐</kbd> <kbd>☑</kbd> <kbd>☒</kbd> <kbd>✔</kbd> на Z, X, J, стрелки <kbd>→</kbd> <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd>; дроби <kbd>½</kbd> <kbd>¾</kbd> на верхнем ряду букв.</p>
-    </div>
-  </div>
+<section><h2 class="why-title">Why it is laid out this way</h2><div class="why"><div class="item"><span class="tag">Nothing to relearn</span><h3>Letters stay in place</h3><p>ЙЦУКЕН and QWERTY are unchanged. Everything new sits on the right Alt key only, so your hands type as before from the first minute.</p></div><div class="item"><span class="tag">No third layout</span><h3>Ukrainian letters next to similar ones</h3><p><kbd>ґ</kbd> on Г, <kbd>і</kbd> on Ы, <kbd>ї</kbd> on Ъ, <kbd>є</kbd> on Э, all with the right Alt key. Russian and Ukrainian live in one layout, no switching between them.</p></div><div class="item"><span class="tag">German without switching</span><h3>Umlauts on their own letters</h3><p><kbd>ä</kbd> on A, <kbd>ö</kbd> on O, <kbd>ü</kbd> on U, <kbd>ß</kbd> on S. German quotes <kbd>„“</kbd> sit on the right Alt key next to the brackets, guillemets « » on the key beside them.</p></div><div class="item"><span class="tag">Same in both</span><h3>Punctuation does not jump</h3><p>Full stop and comma share one key, right of Ю, in both layouts. The symbols above the digits match too. Switch the language and your fingers find the same place.</p></div><div class="item"><span class="tag">Money and paperwork</span><h3>€, ₴, №, § on the digits</h3><p>With the right Alt key: <kbd>€</kbd> on 5, <kbd>₴</kbd> on 9, <kbd>№</kbd> on 3, <kbd>§</kbd> on 1, <kbd>@</kbd> on 2. With Shift and the right Alt key you get superscripts: m², m³.</p></div><div class="item"><span class="tag">Neat text</span><h3>Spaces that keep words together</h3><p>Right Alt plus space gives a non-breaking space, so “10 €” never splits across lines. With Shift you get a narrow one for “1 000” and “z. B.”.</p></div><div class="item"><span class="tag">Names from many countries</span><h3>é, á, š, č in two keystrokes</h3><p>In EnDe: Shift, right Alt and <kbd>'</kbd>, then a letter gives é, á, ó. Shift, right Alt and <kbd>M</kbd>, then a letter gives š, č, ž. For René, José, Dvořák.</p></div><div class="item"><span class="tag">For dictation</span><h3>The key left of 1 is free</h3><p>It types the rare character <kbd>ʹ</kbd>, which never appears in normal text, so it is a good key for starting voice input. The usual apostrophe is on the same key with Shift.</p></div><div class="item"><span class="tag">For forms and lists</span><h3>Check boxes, arrows, fractions</h3><p><kbd>☐</kbd> <kbd>☑</kbd> <kbd>☒</kbd> <kbd>✔</kbd> on Z, X, J, arrows <kbd>→</kbd> <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd>, fractions <kbd>½</kbd> <kbd>¾</kbd> on the top letter row.</p></div></div></section>
+<section class="card" id="install">
+  <h2>How to install</h2>
+  <ol class="steps"><li>Download the archive of the layout you need with a button at the top and unpack it.</li><li>Run <b>setup.exe</b> and allow it when Windows asks for administrator rights.</li><li>Sign out of Windows and sign in again (or restart the computer).</li><li>Open Settings, then “Time &amp; language” and “Language &amp; region”. Next to your language press “…”, then “Language options” and “Add a keyboard”, and choose <b>Russia-Ua 20261117</b> (for Russian) or <b>LAT-DEU 20261117</b> (for English).</li></ol>
+  <div class="warn">If Windows says “Windows protected your PC”, click “More info” and “Run anyway”. It appears because the installer has no paid digital signature. The layouts do not work on computers with ARM processors (Snapdragon, Surface Pro X).</div>
+  <p class="sub" style="margin-top:16px">To remove a layout, open Settings, then “Apps” and “Installed apps”, find its name and click “Uninstall”.</p>
 </section>
-
-<section class="card" id="install" aria-labelledby="install-title">
-  <h2 id="install-title">Как установить</h2>
-  <ol class="steps">
-    <li>Скачайте архив нужной раскладки кнопкой вверху страницы и распакуйте его.</li>
-    <li>Запустите <b>setup.exe</b> и согласитесь, когда Windows попросит права администратора.</li>
-    <li>Выйдите из учётной записи Windows и войдите снова (или перезагрузите компьютер).</li>
-    <li>Откройте «Параметры», затем «Время и язык» и «Язык и регион». У нужного языка нажмите «…», затем «Параметры языка» и «Добавить клавиатуру» и выберите <b>Russia-Ua 20261117</b> (для русского) или <b>LAT-DEU 20261117</b> (для английского).</li>
-  </ol>
-  <div class="warn">Если Windows пишет «Система Windows защитила ваш компьютер», нажмите «Подробнее» и «Выполнить в любом случае». Предупреждение появляется потому, что у установщика нет платной цифровой подписи. На компьютерах с процессором ARM (Snapdragon, Surface Pro X) раскладки не работают.</div>
-  <p class="sub" style="margin-top:16px">Чтобы удалить, откройте «Параметры», затем «Приложения» и «Установленные приложения», найдите название раскладки и нажмите «Удалить».</p>
-</section>
-
-<section class="card" aria-labelledby="short-title">
-  <h2 id="short-title">Коротко по-українськи і auf Deutsch</h2>
-  <p><b>UA.</b> Завантажте архів, запустіть <b>setup.exe</b>, вийдіть з облікового запису й додайте розкладку в «Параметри», розділ «Час і мова». Українські літери: правий Alt разом з Г, Ы, Ъ, Э.</p>
-  <p><b>DE.</b> Archiv herunterladen, <b>setup.exe</b> starten, ab- und wieder anmelden, Layout unter „Einstellungen“, Bereich „Zeit und Sprache“ hinzufügen. Umlaute und ß im Layout EnDe: rechte Alt-Taste zusammen mit A, O, U, S.</p>
-</section>
-
-<footer>
-  Deut-lab · лицензия MIT · <a href="https://github.com/deut-lab/keyboard-layouts">исходники на GitHub</a>, файлы .klc открываются в Microsoft Keyboard Layout Creator 1.4.
-</footer>
-
+<footer>Deut-lab · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> · <a href="https://github.com/deut-lab/keyboard-layouts">source on GitHub</a>, the .klc files open in Microsoft Keyboard Layout Creator 1.4.</footer>
 </div>
 <script>
   const tabs = document.querySelectorAll('[role="tab"]');

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Розкладки RuUa та EnDe</title>
+<meta name="description" content="Дві безкоштовні розкладки клавіатури для Windows: російська з українськими літерами та англійська з німецькими.">
+<link rel="alternate" hreflang="en" href="https://deut-lab.github.io/keyboard-layouts/"><link rel="alternate" hreflang="de" href="https://deut-lab.github.io/keyboard-layouts/de/"><link rel="alternate" hreflang="uk" href="https://deut-lab.github.io/keyboard-layouts/uk/"><link rel="alternate" hreflang="ru" href="https://deut-lab.github.io/keyboard-layouts/ru/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<style>:root { --bg:#F3F6FB; --card:#FFFFFF; --ink:#1F1F1F; --muted:#5F6368; --primary:#0B57D0; --primary-soft:#D3E3FD; --ok:#146C2E; --ok-soft:#C4EED0; --warn:#5C3200; --warn-soft:#FFE2B8; --dead:#B45309; --line:#DDE3EA; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 Roboto, "Segoe UI", system-ui, sans-serif; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+nav.top { background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }
+nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 56px; flex-wrap: wrap; }
+.brand { font-weight: 500; font-size: 17px; }
+.langs { display: flex; gap: 4px; flex-wrap: wrap; }
+.langs a { color: var(--ink); text-decoration: none; padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 500; }
+.langs a:hover { background: #E8EEF7; }
+.langs a[aria-current="page"] { background: var(--primary-soft); color: #041E49; }
+header { padding: 40px 0 24px; }
+h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 0 0 12px; font-weight: 500; letter-spacing: -0.5px; }
+.lead { font-size: 19px; color: var(--muted); max-width: 700px; margin: 0 0 24px; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 999px; font-weight: 500; text-decoration: none; }
+.btn.primary { background: var(--primary); color: #fff; }
+.btn.tonal { background: var(--primary-soft); color: #041E49; }
+.btn:hover { filter: brightness(1.06); }
+.note { font-size: 14px; color: var(--muted); margin-top: 12px; }
+.card { background: var(--card); border-radius: 24px; padding: 28px; margin: 20px 0; }
+h2 { font-size: 26px; font-weight: 500; margin: 0 0 6px; }
+.why-title { margin: 32px 0 16px; }
+h3 { font-size: 18px; font-weight: 500; margin: 0 0 4px; }
+.sub { color: var(--muted); margin: 0 0 18px; }
+.kbd-img { width: 100%; overflow-x: auto; }
+.kbd-img img { display: block; width: 100%; min-width: 640px; height: auto; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--muted); margin-top: 14px; }
+.legend b { font-weight: 500; }
+.c-alt { color: var(--primary); } .c-dead { color: var(--dead); }
+.why { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+.why .item { background: var(--card); border-radius: 20px; padding: 22px; }
+.why .item p { margin: 6px 0 0; color: #3C4043; }
+.tag { display: inline-block; font-size: 13px; font-weight: 500; padding: 2px 10px; border-radius: 999px; background: var(--ok-soft); color: var(--ok); margin-bottom: 8px; }
+kbd { font: 500 14px Roboto, sans-serif; background: #E8EEF7; border-radius: 6px; padding: 1px 7px; white-space: nowrap; }
+ol.steps { padding-left: 22px; margin: 8px 0 0; }
+ol.steps li { margin: 8px 0; }
+.warn { background: var(--warn-soft); color: var(--warn); border-radius: 16px; padding: 14px 18px; margin-top: 16px; font-size: 15px; }
+footer { color: var(--muted); font-size: 14px; padding: 24px 0 48px; }
+footer a, .card a:not(.btn), .note a { color: var(--primary); }
+.tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.tabs button { font: 500 15px Roboto, sans-serif; border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 8px 18px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--primary-soft); border-color: var(--primary-soft); color: #041E49; }
+.panel[hidden] { display: none; }
+@media (max-width: 600px) { .card { padding: 20px; border-radius: 20px; } header { padding-top: 28px; } }
+</style>
+</head>
+<body>
+<nav class="top"><div class="wrap"><span class="brand">RuUa · EnDe</span><span class="langs"><a href="../" hreflang="en" lang="en">English</a><a href="../de/" hreflang="de" lang="de">Deutsch</a><a href="../uk/" hreflang="uk" lang="uk" aria-current="page">Українська</a><a href="../ru/" hreflang="ru" lang="ru">Русский</a></span></div></nav>
+<div class="wrap">
+<header>
+  <h1>Дві розкладки, чотири мови</h1>
+  <p class="lead">Російська розкладка, у якій є й українські літери, та англійська, у якій є й німецькі. Літери на звичних місцях, а все додаткове набирається з правим Alt. Для Windows, безкоштовно.</p>
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/deut-lab/keyboard-layouts/releases/latest/download/RuUa2611.zip">Завантажити RuUa: російська й українська</a>
+    <a class="btn tonal" href="https://github.com/deut-lab/keyboard-layouts/releases/latest/download/EnDe2611.zip">Завантажити EnDe: англійська й німецька</a>
+  </div>
+  <p class="note">Версія 2611 від 17.11.2026 · Windows 10 і 11 · <a href="#install">як встановити</a></p>
+</header>
+<section class="card">
+  <h2>Як вони виглядають</h2>
+  <p class="sub">На кожній клавіші до чотирьох знаків: унизу ліворуч знак самої клавіші, угорі ліворуч знак із Shift, праворуч синім знаки з правим Alt (верхній ще й із Shift).</p>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" aria-controls="p-ruua" id="t-ruua">RuUa</button>
+    <button role="tab" aria-selected="false" aria-controls="p-ende" id="t-ende">EnDe</button>
+  </div>
+  <div class="panel" id="p-ruua" role="tabpanel" aria-labelledby="t-ruua"><div class="kbd-img"><img src="../img/RuUa2611.svg" alt="Розкладка RuUa2611: російські літери ЙЦУКЕН; з правим Alt українські ґ, і, ї, є, літера ё, знаки валют, стрілки й символи"></div></div>
+  <div class="panel" id="p-ende" role="tabpanel" aria-labelledby="t-ende" hidden><div class="kbd-img"><img src="../img/EnDe2611.svg" alt="Розкладка EnDe2611: літери QWERTY; з правим Alt німецькі ä, ö, ü, ß, лапки „“ і клавіші наголосу ´ та ˇ"></div></div>
+  <div class="legend"><span><b>Чорним</b> набирається без Alt</span><span class="c-alt"><b>Синім</b> набирається з правим Alt</span><span class="c-dead"><b>Помаранчевим</b>: спершу цей знак, потім літера, і з e вийде é</span><span>«nbsp» означає нерозривний пробіл, «nnbsp» вузький</span></div>
+</section>
+<section><h2 class="why-title">Чому саме так</h2><div class="why"><div class="item"><span class="tag">Нічого не перевчати</span><h3>Літери на своїх місцях</h3><p>ЙЦУКЕН і QWERTY не змінені. Усе нове додано лише на правий Alt, тож руки друкують як раніше з першої хвилини.</p></div><div class="item"><span class="tag">Без третьої розкладки</span><h3>Українські літери поруч зі схожими</h3><p><kbd>ґ</kbd> на Г, <kbd>і</kbd> на Ы, <kbd>ї</kbd> на Ъ, <kbd>є</kbd> на Э, усі з правим Alt. Російська й українська в одній розкладці, перемикатися не треба.</p></div><div class="item"><span class="tag">Німецька без перемикання</span><h3>Умлаути на своїх літерах</h3><p><kbd>ä</kbd> на A, <kbd>ö</kbd> на O, <kbd>ü</kbd> на U, <kbd>ß</kbd> на S. Німецькі лапки <kbd>„“</kbd> стоять на правому Alt біля дужок, а «ялинки» на сусідній клавіші.</p></div><div class="item"><span class="tag">Однаково в обох</span><h3>Розділові знаки не стрибають</h3><p>Крапка й кома стоять на одній клавіші праворуч від Ю в обох розкладках. Знаки над цифрами теж збігаються. Перемкнули мову, а пальці шукають те саме місце.</p></div><div class="item"><span class="tag">Гроші й документи</span><h3>€, ₴, №, § на цифрах</h3><p>З правим Alt: <kbd>€</kbd> на 5, <kbd>₴</kbd> на 9, <kbd>№</kbd> на 3, <kbd>§</kbd> на 1, <kbd>@</kbd> на 2. Із Shift і правим Alt набираються степені: м², м³.</p></div><div class="item"><span class="tag">Охайний текст</span><h3>Пробіли, що не рвуть рядок</h3><p>Правий Alt і пробіл дають нерозривний пробіл, тож «10 €» не розійдеться по рядках. Із Shift вийде вузький: «1 000», «z. B.».</p></div><div class="item"><span class="tag">Імена з різних країн</span><h3>é, á, š, č двома натисканнями</h3><p>В EnDe: Shift, правий Alt і <kbd>'</kbd>, потім літера, і вийде é, á, ó. Shift, правий Alt і <kbd>M</kbd>, потім літера, і вийде š, č, ž. Для René, José, Dvořák.</p></div><div class="item"><span class="tag">Для диктування</span><h3>Клавіша біля 1 вільна</h3><p>Вона друкує рідкісний знак <kbd>ʹ</kbd>, якого немає у звичайному тексті, тому на неї зручно повісити виклик голосового введення. Звичайний апостроф набирається із Shift на тій самій клавіші.</p></div><div class="item"><span class="tag">Для форм і списків</span><h3>Позначки, стрілки, дроби</h3><p><kbd>☐</kbd> <kbd>☑</kbd> <kbd>☒</kbd> <kbd>✔</kbd> на Z, X, J, стрілки <kbd>→</kbd> <kbd>←</kbd> <kbd>↑</kbd> <kbd>↓</kbd>, дроби <kbd>½</kbd> <kbd>¾</kbd> у верхньому ряду літер.</p></div></div></section>
+<section class="card" id="install">
+  <h2>Як встановити</h2>
+  <ol class="steps"><li>Завантажте архів потрібної розкладки кнопкою вгорі сторінки й розпакуйте його.</li><li>Запустіть <b>setup.exe</b> і погодьтеся, коли Windows попросить права адміністратора.</li><li>Вийдіть з облікового запису Windows і увійдіть знову (або перезавантажте комп’ютер).</li><li>Відкрийте «Параметри», потім «Час і мова» та «Мова й регіон». Біля потрібної мови натисніть «…», потім «Параметри мови» та «Додати клавіатуру» й виберіть <b>Russia-Ua 20261117</b> (для російської) або <b>LAT-DEU 20261117</b> (для англійської).</li></ol>
+  <div class="warn">Якщо Windows пише «Windows захистила ваш ПК», натисніть «Докладніше» і «Усе одно запустити». Попередження з’являється тому, що в інсталятора немає платного цифрового підпису. На комп’ютерах із процесором ARM (Snapdragon, Surface Pro X) розкладки не працюють.</div>
+  <p class="sub" style="margin-top:16px">Щоб видалити, відкрийте «Параметри», потім «Програми» та «Інстальовані програми», знайдіть назву розкладки й натисніть «Видалити».</p>
+</section>
+<footer>Deut-lab · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a> · <a href="https://github.com/deut-lab/keyboard-layouts">вихідні файли на GitHub</a>, файли .klc відкриваються в Microsoft Keyboard Layout Creator 1.4.</footer>
+</div>
+<script>
+  const tabs = document.querySelectorAll('[role="tab"]');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(o => { o.setAttribute('aria-selected', o === t); document.getElementById(o.getAttribute('aria-controls')).hidden = o !== t; });
+  }));
+</script>
+</body>
+</html>

@@ -1,45 +1,39 @@
-# Раскладки клавиатуры RuUa и EnDe для Windows
+# RuUa and EnDe keyboard layouts for Windows
 
-Две раскладки, чтобы писать по-русски, по-украински, по-немецки и по-английски без лишних переключений.
+**English** · [Deutsch](README.de.md) · [Українська](README.uk.md) · [Русский](README.ru.md)
 
-- **RuUa**: русская раскладка ЙЦУКЕН, в которой есть и украинские буквы ґ, і, ї, є.
-- **EnDe**: английская раскладка QWERTY, в которой есть и немецкие буквы ä, ö, ü, ß.
+Two layouts to type Russian, Ukrainian, German and English without extra switching.
 
-Буквы стоят на привычных местах, а дополнительные знаки набираются с **правым Alt**.
+- **RuUa**: the Russian ЙЦУКЕН layout that also has the Ukrainian letters ґ, і, ї, є.
+- **EnDe**: the English QWERTY layout that also has the German letters ä, ö, ü, ß.
 
-**Картинки клавиатур и объяснение, почему знаки стоят именно так:** https://deut-lab.github.io/keyboard-layouts/
+Letters stay where you are used to them; extra characters are typed with the **right Alt key** (AltGr).
 
-## Установка
+**Keyboard pictures and why everything is placed this way:** https://deut-lab.github.io/keyboard-layouts/
 
-1. Скачайте архив со [страницы выпуска](https://github.com/deut-lab/keyboard-layouts/releases/latest): `RuUa2611.zip` или `EnDe2611.zip`.
-2. Распакуйте его и запустите `setup.exe`. Windows попросит права администратора, согласитесь.
-3. Выйдите из учётной записи Windows и войдите снова.
-4. Откройте «Параметры», затем «Время и язык» и «Язык и регион». У нужного языка нажмите «…», затем «Параметры языка» и «Добавить клавиатуру» и выберите **Russia-Ua 20261117** (для русского) или **LAT-DEU 20261117** (для английского).
+## Install
 
-Если Windows пишет «Система Windows защитила ваш компьютер», нажмите «Подробнее» и «Выполнить в любом случае». Так бывает, потому что у установщика нет платной цифровой подписи.
+1. Download an archive from the [release page](https://github.com/deut-lab/keyboard-layouts/releases/latest): `RuUa2611.zip` or `EnDe2611.zip`.
+2. Unpack it and run `setup.exe`. Allow it when Windows asks for administrator rights.
+3. Sign out of Windows and sign in again.
+4. Open Settings, then "Time & language" and "Language & region". Next to your language press "…", then "Language options" and "Add a keyboard", and choose **Russia-Ua 20261117** (for Russian) or **LAT-DEU 20261117** (for English).
 
-На компьютерах с процессором ARM (Snapdragon, Surface Pro X) раскладки не работают.
+If Windows says "Windows protected your PC", click "More info" and "Run anyway". It appears because the installer has no paid digital signature.
 
-Чтобы удалить раскладку, откройте «Параметры», затем «Приложения» и «Установленные приложения», найдите её название и нажмите «Удалить».
+The layouts do not work on computers with ARM processors (Snapdragon, Surface Pro X).
 
-## Українською
+To remove a layout, open Settings, then "Apps" and "Installed apps", find its name and click "Uninstall".
 
-Завантажте архів зі [сторінки випуску](https://github.com/deut-lab/keyboard-layouts/releases/latest), розпакуйте й запустіть `setup.exe`. Потім вийдіть з облікового запису й додайте розкладку в «Параметри», розділ «Час і мова». Українські літери: правий Alt разом з Г, Ы, Ъ, Э.
+## What is inside
 
-## Auf Deutsch
-
-Archiv von der [Release-Seite](https://github.com/deut-lab/keyboard-layouts/releases/latest) herunterladen, entpacken, `setup.exe` starten. Danach ab- und wieder anmelden und das Layout unter „Einstellungen“, Bereich „Zeit und Sprache“ hinzufügen. Umlaute und ß im Layout EnDe: rechte Alt-Taste zusammen mit A, O, U, S.
-
-## Что в проекте
-
-| Папка | Что внутри |
+| Folder | Contents |
 | --- | --- |
-| `src` | исходники раскладок `.klc`, открываются в Microsoft Keyboard Layout Creator 1.4 |
-| `docs` | страница с картинками клавиатур |
-| `scripts` | `klc_to_svg.py` рисует картинку клавиатуры из файла `.klc` |
+| `src` | layout sources `.klc`, they open in Microsoft Keyboard Layout Creator 1.4 |
+| `docs` | the website with keyboard pictures |
+| `scripts` | `klc_to_svg.py` draws a keyboard picture from a `.klc` file, `build_site.py` builds the website |
 
-Готовые установщики лежат не в папках, а на странице выпуска.
+Ready installers are on the release page, not in the folders.
 
-## Лицензия
+## License
 
-MIT, см. [LICENSE.md](LICENSE.md). Автор: Deut-lab.
+[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/): free to download, use and share unchanged with credit to Deut-lab; no commercial use, no modified versions. See [LICENSE.md](LICENSE.md).
