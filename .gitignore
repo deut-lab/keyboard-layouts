@@ -1,0 +1,16 @@
+# Local test files
+*.log
+*.tmp
+*.bak
+
+# Windows folder noise
+Thumbs.db
+Desktop.ini
+
+# Local editor folders
+.vscode/
+.idea/
+
+# Local package builds
+build/
+*.zip
